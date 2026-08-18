@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: telco-service
+    labels:
+        app: telco
+spec:
+    selector:
+        app: telco
+    ports:
+      - name: http
+        protocol: TCP
+        port: 80
+        targetPort: 5000
+    type: LoadBalancer
