@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: telco-deployment
+    labels:
+        app: telco
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: telco
+    template:
+        metadata:
+            labels:
+                app: telco
+        spec:
+            containers:
+                - name: telco-app
+                  image: navaj008/telco-churn:v1
+                  ports:
+                    - containerPort: 5000
